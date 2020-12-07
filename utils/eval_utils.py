@@ -102,7 +102,7 @@ def eval_minimal(X_test, Y_test, global_weights, return_dict=None):
     if args.dataset == 'CIFAR-10':
         Y_test = Y_test.reshape(len(Y_test))
 
-    for i in range(len(X_test) / gv.BATCH_SIZE):
+    for i in range(int(len(X_test) / gv.BATCH_SIZE)):
         X_test_slice = X_test[i * (gv.BATCH_SIZE):(i + 1) * (gv.BATCH_SIZE)]
         Y_test_slice = Y_test[i * (gv.BATCH_SIZE):(i + 1) * (gv.BATCH_SIZE)]
         # Y_test_cat_slice = np_utils.to_categorical(Y_test_slice)
