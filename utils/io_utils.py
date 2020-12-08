@@ -17,14 +17,14 @@ def file_write(write_dict, purpose='global_eval_loss'):
 	         '_' + purpose + '.txt', 'a')
 	if write_dict['t'] == 1:
 		d_count = 1
-		for k, v in write_dict.iteritems():
+		for k, v in write_dict.items():
 			if d_count < len(write_dict):
 				f.write(k + ',')
 			else:
 				f.write(k + '\n')
 			d_count += 1
 		d_count = 1
-		for k, v in write_dict.iteritems():
+		for k, v in write_dict.items():
 			if d_count < len(write_dict):
 				f.write(str(v) + ',')
 			else:
@@ -32,7 +32,7 @@ def file_write(write_dict, purpose='global_eval_loss'):
 			d_count += 1
 	elif write_dict['t'] != 1:
 		d_count = 1
-		for k, v in write_dict.iteritems():
+		for k, v in write_dict.items():
 			if d_count < len(write_dict):
 				f.write(str(v) + ',')
 			else:
