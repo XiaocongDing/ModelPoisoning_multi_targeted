@@ -47,12 +47,14 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
 
         k = 0
         agents_left = 1e4
+
         while k < num_agents_per_time:
             true_simul = min(simul_num,agents_left)
             print('training %s agents' % true_simul)
             for l in range(true_simul):
                 gpu_index = int(l / gv.max_agents_per_gpu)
                 gpu_id = gv.gpu_ids[gpu_index]
+                
                 i = curr_agents[k]
                 if args.mal is False or i != mal_agent_index:
                     p = Process(target=agent, args=(i, X_train_shards[i],
@@ -61,7 +63,7 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
                     p = Process(target=mal_agent, args=(X_train_shards[mal_agent_index],
                                                     Y_train_shards[mal_agent_index], mal_data_X, mal_data_Y, t, gpu_id, return_dict, mal_visible, X_test, Y_test))
                     mal_active = 1
-
+              
                 p.start()
                 process_list.append(p)
                 k += 1
@@ -156,6 +158,9 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
             global_weights += update_list
 
         # Saving for the next update
+        print(gv.dir_name) 
+        print("asssasssassss7777777777777777777777")
+        print(global_weights)
         np.save(gv.dir_name + 'global_weights_t%s.npy' %
                 (t + 1), global_weights)
 
@@ -181,7 +186,7 @@ def main():
     X_train, Y_train, X_test, Y_test, Y_test_uncat = data_setup()
     # Create data shards
     random_indices = np.random.choice(
-        len(X_train), len(X_train), replace=False)
+        len(X_train), len(X_train), replace=False) #1*n的从0-n的随机数组成的向量，不能重复。
     X_train_permuted = X_train[random_indices]
     Y_train_permuted = Y_train[random_indices]
     X_train_shards = np.split(X_train_permuted, args.k)
@@ -200,7 +205,6 @@ def main():
         return_dict = manager.dict()
         return_dict['eval_success'] = 0.0
         return_dict['eval_loss'] = 0.0
-
         if args.mal:
             return_dict['mal_suc_count'] = 0
             t_final = train_fn(X_train_shards, Y_train_shards, X_test, Y_test_uncat,
