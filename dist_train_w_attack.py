@@ -186,7 +186,7 @@ def main():
     X_train, Y_train, X_test, Y_test, Y_test_uncat = data_setup()
     # Create data shards
     random_indices = np.random.choice(
-        len(X_train), len(X_train), replace=False) #1*n的从0-n的随机数组成的向量，不能重复。
+        len(X_train), len(X_train), replace=False) #1*n的从0-n的随机数组成的向量，不能重复。 打乱肾虚
     X_train_permuted = X_train[random_indices]
     Y_train_permuted = Y_train[random_indices]
     X_train_shards = np.split(X_train_permuted, args.k)

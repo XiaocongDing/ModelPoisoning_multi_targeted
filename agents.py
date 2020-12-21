@@ -96,7 +96,6 @@ def agent(i, X_shard, Y_shard, t, gpu_id, return_dict, X_test, Y_test, lr=None):
         start_offset = (t*args.B*args.steps) % (shard_size - args.B)
 
     num_steps=int(num_steps)
-    print("666666666666666666 %d" %num_steps)
     for step in range(num_steps):
         offset = (start_offset + step * args.B) % (shard_size - args.B)
         X_batch = X_shard[offset: (offset + args.B)]
@@ -108,7 +107,6 @@ def agent(i, X_shard, Y_shard, t, gpu_id, return_dict, X_test, Y_test, lr=None):
             # local_weights = agent_model.get_weights()
             # eval_success, eval_loss = eval_minimal(X_test,Y_test,x, y, sess, prediction, loss)
             # print('Agent {}, Step {}: success {}, loss {}'.format(i,step,eval_success,eval_loss))
-    print("777777777777777777777777")
     local_weights = agent_model.get_weights()
     local_delta = local_weights - shared_weights
     
