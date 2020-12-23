@@ -62,6 +62,7 @@ def agent(i, X_shard, Y_shard, t, gpu_id, return_dict, X_test, Y_test, lr=None):
 
     logits = agent_model(x)
 
+
     if args.dataset == 'census':
         # loss = tf.nn.sigmoid_cross_entropy_with_logits(
         #     labels=y, logits=logits)
@@ -80,6 +81,8 @@ def agent(i, X_shard, Y_shard, t, gpu_id, return_dict, X_test, Y_test, lr=None):
             learning_rate=lr).minimize(loss)
 
     if args.k > 1:
+        print("kkkkkkkkkkkkkkkkkkkkkkkk")
+        print(gv.gpu_options)
         config = tf.ConfigProto(gpu_options=gv.gpu_options)
         # config.gpu_options.allow_growth = True
         sess = tf.Session(config=config)

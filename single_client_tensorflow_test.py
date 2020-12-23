@@ -66,7 +66,7 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
         lr = eta
     num_steps = E * shard_size / B ## num_steps : iterations
     
-    agent_model = modelA
+    agent_model = modelA()
 
     x = tf.placeholder(shape=(None,
                               IMAGE_ROWS,
@@ -74,10 +74,12 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
                               NUM_CHANNELS), dtype=tf.float32)
     y = tf.placeholder(dtype=tf.int64)
 
-    logits = agent_model() # ??
+    logits = agent_model(x) # ??
 
     loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=y, logits=logits))
+
+
     prediction = tf.nn.softmax(logits)
     optimizer = tf.train.AdamOptimizer(learning_rate=lr).minimize(loss)
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=mem_frac)
@@ -87,10 +89,12 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
     K.set_session(sess)
     sess.run(tf.global_variables_initializer())
 
-    for step in range(num_steps):
-        offset = (start_offset + step * args.B) % (shard_size - args.B)
-        X_batch = X_shard[offset: (offset + args.B)]
-        Y_batch = Y_shard[offset: (offset + args.B)]
+    start_offset = 0
+
+    for step in range(int(num_steps)):
+        offset = (start_offset + step * B) % (shard_size - B)
+        X_batch = X_shard[offset: (offset + B)]
+        Y_batch = Y_shard[offset: (offset + B)]
         Y_batch_uncat = np.argmax(Y_batch, axis=1)
         _, loss_val = sess.run([optimizer,loss], feed_dict={x: X_batch, y: Y_batch_uncat})
         if step % 10 == 0:
