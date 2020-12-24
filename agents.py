@@ -99,6 +99,7 @@ def agent(i, X_shard, Y_shard, t, gpu_id, return_dict, X_test, Y_test, lr=None):
         start_offset = (t*args.B*args.steps) % (shard_size - args.B)
 
     num_steps=int(num_steps)
+    print("num steps %d: " %num_steps)
     for step in range(num_steps):
         offset = (start_offset + step * args.B) % (shard_size - args.B)
         X_batch = X_shard[offset: (offset + args.B)]
@@ -118,6 +119,9 @@ def agent(i, X_shard, Y_shard, t, gpu_id, return_dict, X_test, Y_test, lr=None):
 
 
     print('Agent {}: success {}, loss {}'.format(i,eval_success,eval_loss))
+    
+    with open('Agent_%d' % i,'a+') as f:
+        f.write('success {} , loss {}'.format(eval_success,eval_loss))
 
     return_dict[str(i)] = np.array(local_delta)
 

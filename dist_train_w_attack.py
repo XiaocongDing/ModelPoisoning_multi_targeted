@@ -23,6 +23,7 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
     simul_num = min(num_agents_per_time,simul_agents)
     alpha_i = 1.0 / args.k
     agent_indices = np.arange(args.k)
+    
     if args.mal:
         mal_agent_index = gv.mal_agent_index
 
@@ -36,7 +37,7 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
     if args.gar == 'krum':
         krum_select_indices = []
 
-    while return_dict['eval_success'] < gv.max_acc and t < args.T:
+    while return_dict['eval_success'] < gv.max_acc and t < args.T:  #T the max_steps, return_dict ong=
         print('Time step %s' % t)
 
         process_list = []
@@ -159,8 +160,7 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
 
         # Saving for the next update
         print(gv.dir_name) 
-        print("asssasssassss7777777777777777777777")
-        print(global_weights)
+        
         np.save(gv.dir_name + 'global_weights_t%s.npy' %
                 (t + 1), global_weights)
 
@@ -175,6 +175,8 @@ def train_fn(X_train_shards, Y_train_shards, X_test, Y_test, return_dict,
         p_eval.join()
 
         eval_loss_list.append(return_dict['eval_loss'])
+        with open('eval_loss_list_dump','a+') as f：
+            f.write("%s\n" %eval_loss_list)
 
         t += 1
 

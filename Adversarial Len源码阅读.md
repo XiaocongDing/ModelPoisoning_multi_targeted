@@ -38,11 +38,51 @@ global 关键字不能初始化变量
 
 global 函数内部定义的全局变量，必须要引用该函数一次才能被其它模块所调用。
 
+
+
+conda 环境tf3 ，python3.6 
+
+单独安装tensorflow-gpu=1.8 可以找到gpu
+
+![1608781842938](Adversarial Len源码阅读.assets/1608781842938.png)
+
+但是装完keras后，gpu就找不到了
+
+![1608781881283](Adversarial Len源码阅读.assets/1608781881283.png)
+
+装了keras后，发现包里面多了一个tensorflow1.2，![1608782544544](Adversarial Len源码阅读.assets/1608782544544.png)
+
+这个1.2.1的版本把之前的1.8版本覆盖了
+
+我觉得是先后顺序的问题
+
+调整了先后顺序可以了,但是程序报错：
+
+![1608782810050](Adversarial Len源码阅读.assets/1608782810050.png)
+
+当然解决上述问题除了换顺序，还有一种方法就是直接装keras-gpu版本
+
+![1608783042361](Adversarial Len源码阅读.assets/1608783042361.png)
+
+我装的是keras-gpu=2.1.6，是可以的。但是不确定会不会报资源分配的错，资源分配的错就是说，显存装不下:
+
+ResourceExhaustedError
+
+![1608796008229](Adversarial Len源码阅读.assets/1608796008229.png)
+
+
+
 #### 代码运行问题：
 
 range输入参数未转int，float类型报错
 
 iteritems在python3下不支持，改用items
+
+ResourceExhaustedError:
+
+![1608796066907](Adversarial Len源码阅读.assets/1608796066907.png)
+
+
 
 
 
@@ -51,6 +91,8 @@ iteritems在python3下不支持，改用items
 代码跑得太慢，我怀疑是GPU参数设置没有成功，是在用cpu跑的。
 
 本文的并行是使用的python的multiprocess库。
+
+![1608795981725](Adversarial Len源码阅读.assets/1608795981725.png)
 
 ## 代码实现流程：
 
@@ -120,9 +162,81 @@ agent: 训练600步，时间记录一下
 
 尝试改写源码：
 
-想尝试只有一个客户端的清醒
+只有一个客户端的情况
 
-![1608602526769](Adversarial Len源码阅读.assets/1608602526769.png)
+![1608623496405](Adversarial Len源码阅读.assets/1608623496405.png)
+
+
+
+![1608623508991](Adversarial Len源码阅读.assets/1608623508991.png)
+
+两种类型不一样
+
+跟踪模型权值向量，
+
+每种聚合算法对权值向量的处理方式不同:
+
+通过process开启客户端，启动训练
+
+根据eval_minimal计算损失值和成功率
+
+
+
+恶意样本生成的，只是对个别样本标签进行攻击
+
+
+
+## 重要模块分析
+
+## io_utils
+
+#### file_write
+
+写全局模型的损失值。
+
+如果write_dict['t'] 为1：
+
+否则
+
+#### data_setup
+
+根据参数确定数据集，返回数据集中的训练集（X_train, Y_train）和测试集(X_test, Y_test)
+
+#### mal_data_create
+
+生成恶意数据集
+
+#### mal_data_setup
+
+
+
+## dist_train_w_attack
+
+#### train_fn
+
+传入分好片的数据集X_train_shards, Y_train_shards
+
+数据通信用的是manager方法返回的dict。dict的元素有成功率和loss值。初始化这两个属性值为0。 根据是否设定恶意客户端，设置mal_suc_count元素，该元素初始化也为0.
+
+
+
+在成功率小于预设成功率且迭代次数小于预设迭代次数时，开启客户端进行训练。数据集切片标号与客户段的标号同步。
+
+客户端，迭代num_step次，优化模型。
+
+model.summary () 能输出模型各层的参数情况
+
+master获取全局模型的权值，
+
+
+
+
+
+
+
+
+
+
 
 
 

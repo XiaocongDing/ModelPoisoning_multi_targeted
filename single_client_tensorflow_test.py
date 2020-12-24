@@ -8,7 +8,6 @@ from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
 import numpy as np
 import os
 from multiprocessing import Process, Manager
-
 ######################################
 
 ############ data prepared ###########
@@ -68,6 +67,8 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
     
     agent_model = modelA()
 
+    temp_weights = agent_model.get_weights()
+
     x = tf.placeholder(shape=(None,
                               IMAGE_ROWS,
                               IMAGE_COLS,
@@ -84,18 +85,20 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
     optimizer = tf.train.AdamOptimizer(learning_rate=lr).minimize(loss)
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=mem_frac)
     config = tf.ConfigProto(gpu_options = gpu_options)
-
-    sess = tf.Session(config = config)
+    sess = tf.Session(config = config)  
     K.set_session(sess)
+
+    
     sess.run(tf.global_variables_initializer())
 
     start_offset = 0
-
+    
     for step in range(int(num_steps)):
         offset = (start_offset + step * B) % (shard_size - B)
         X_batch = X_shard[offset: (offset + B)]
         Y_batch = Y_shard[offset: (offset + B)]
         Y_batch_uncat = np.argmax(Y_batch, axis=1)
+        print("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
         _, loss_val = sess.run([optimizer,loss], feed_dict={x: X_batch, y: Y_batch_uncat})
         if step % 10 == 0:
             print ('Agent %s, Step %s, Loss %s, offset %s' % (i,step,loss_val, offset))
@@ -127,7 +130,7 @@ def modelA():
 def mal_data_create(X_test, Y_test, Y_test_uncat):
 
     if mal_obj == 'single':
-        r =np.random.choice(len(X_test)) 
+        r =np.random.choice(len(X_test))
         mal_data_X = X_test[r: r + 1]
         allowed_targets = list(range(NUM_CLASSES))
         print("Initial class: %s" %Y_test_uncat[r])
@@ -135,15 +138,16 @@ def mal_data_create(X_test, Y_test, Y_test_uncat):
         allowed_targets.remove(Y_test_uncat[r])
         mal_data_Y = np.random.choice(allowed_targets)
         mal_data_Y = mal_data_Y.reshape(1,)
+
         print("Target class: %s" % mal_data_Y[0])
     else:
-        target_indices = np.random.choice(len(X_test), args.mal_num)
+        target_indices = np.random.choice(len(X_test), mal_num)
         mal_data_X = X_test[target_indices]
         print("Initial classes: %s" % Y_test_uncat[target_indices])
         true_labels = Y_test_uncat[target_indices]
         mal_data_Y = []
-        for i in range(args.mal_num):
-            allowed_targets = list(range(gv.NUM_CLASSES))
+        for i in range(mal_num):
+            allowed_targets = list(range(NUM_CLASSES))
             allowed_targets.remove(Y_test_uncat[target_indices[i]])
             mal_data_Y.append(np.random.choice(allowed_targets))
         mal_data_Y = np.array(mal_data_Y)
@@ -163,9 +167,8 @@ def mal_data_create(X_test, Y_test, Y_test_uncat):
 
 if __name__ == "__main__":
 
-    y_train = np_utils.to_categorical(y_train, NUM_CLASSES).astype(np.float32)
-    y_test = np_utils.to_categorical(y_test, NUM_CLASSES).astype(np.float32)
-
+    y_train = np_utils.to_categorical(y_train, NUM_CLASSES).astype(np.float32) ##(60000,10) y = label, x = image
+    y_test = np_utils.to_categorical(y_test, NUM_CLASSES).astype(np.float32) #(10000,10)
     Y_test_uncat = np.argmax(y_test,axis=1)
     ###############################
 
