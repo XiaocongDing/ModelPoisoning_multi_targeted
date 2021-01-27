@@ -1,0 +1,819 @@
+
+(tf) E:\FedLearning\ModelPoisoning\ModelPoisoning\ModelPoisoning_multi_targeted>python -W ignore single_test.py
+Using TensorFlow backend.
+(6000, 28, 28, 1)
+Initial class: 3
+Target class: 1
+Using TensorFlow backend.
+Initializing master model
+2021-01-27 17:29:17.254943: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255070: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255152: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255273: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255392: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255506: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255616: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:17.255727: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_1 (Conv2D)            (None, 24, 24, 4)         104
+_________________________________________________________________
+activation_1 (Activation)    (None, 24, 24, 4)         0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 20, 20, 4)         404
+_________________________________________________________________
+activation_2 (Activation)    (None, 20, 20, 4)         0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 20, 20, 4)         0
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 1600)              0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                25616
+_________________________________________________________________
+activation_3 (Activation)    (None, 16)                0
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                170
+=================================================================
+Total params: 26,294
+Trainable params: 26,294
+Non-trainable params: 0
+_________________________________________________________________
+Using TensorFlow backend.
+Using TensorFlow backend.
+2021-01-27 17:29:22.161977: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.162157: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.162519: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.162613: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.162709: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.162801: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.163845: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:22.164420: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.28992, offset 0
+Using TensorFlow backend.
+Agent 9, Step 100, Loss 1.46525, offset 5000
+2021-01-27 17:29:25.634448: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.634580: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.636037: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.643689: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.643830: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.646462: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.656897: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:25.657383: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 200, Loss 1.06798, offset 4050
+Agent 9, Step 0, Loss 2.27264, offset 0
+Agent 9, Step 300, Loss 0.959389, offset 3100
+Agent 9, Step 100, Loss 1.60727, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 400, Loss 0.929052, offset 2150
+Agent 9, Step 200, Loss 1.1506, offset 4050
+Agent 9, Step 500, Loss 0.857095, offset 1200
+Agent 9, Step 300, Loss 1.1422, offset 3100
+2021-01-27 17:29:32.871074: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.871261: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.874419: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.881165: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.883546: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.883702: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.885479: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:32.887476: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.3054, offset 0
+Agent 9, Step 400, Loss 0.990824, offset 2150
+Agent 9, Step 100, Loss 1.57663, offset 5000
+result:
+3
+[[  7.42605105e-02   1.53038856e-02   2.19918378e-02   7.91694105e-01
+    2.60959994e-02   1.35669634e-05   7.04951882e-02   2.72597185e-06
+    1.31080393e-04   1.10808278e-05]]
+Target: 3 with confidence 0.791694; Actual: 3 with confidence 0.791694
+Agent 9, Step 500, Loss 1.0126, offset 1200
+Using TensorFlow backend.
+Agent 9, Step 200, Loss 1.26199, offset 4050
+Agent 9, Step 300, Loss 1.22881, offset 3100
+2021-01-27 17:29:40.730242: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:40.730412: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:40.732131: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+result:
+2021-01-27 17:29:40.738857: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+3
+2021-01-27 17:29:40.742462: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:40.743176: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+[[  1.38611853e-01   1.73678193e-02   1.27449620e-03   7.88466394e-01
+    2.31969450e-03   1.25439593e-03   4.11831290e-02   1.88414284e-04
+    9.32849571e-03   5.22447908e-06]]2021-01-27 17:29:40.743676: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+
+2021-01-27 17:29:40.744578: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Target: 3 with confidence 0.788466; Actual: 3 with confidence 0.788466
+Agent 9, Step 0, Loss 2.45877, offset 0
+Agent 9, Step 400, Loss 0.943808, offset 2150
+Agent 9, Step 100, Loss 1.64158, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.08593, offset 1200
+Agent 9, Step 200, Loss 1.3225, offset 4050
+2021-01-27 17:29:47.618715: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.619405: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.619634: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.620075: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.620745: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.621247: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.628831: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:47.631100: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.21137, offset 3100
+Agent 9, Step 0, Loss 2.50012, offset 0
+result:
+3
+[[  3.88519347e-01   1.21233938e-02   3.60495523e-02   4.76786911e-01
+    1.10844532e-02   7.38541121e-06   7.18618631e-02   8.50085144e-07
+    3.53742600e-03   2.88326100e-05]]
+Target: 3 with confidence 0.476787; Actual: 3 with confidence 0.476787
+Agent 9, Step 400, Loss 0.856406, offset 2150
+Agent 9, Step 100, Loss 1.56484, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.01579, offset 1200
+Agent 9, Step 200, Loss 1.11337, offset 4050
+2021-01-27 17:29:54.696694: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.696831: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.698921: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.705648: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.706152: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.706623: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.707088: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:29:54.709973: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 0.98357, offset 3100
+Agent 9, Step 0, Loss 2.31681, offset 0
+result:
+3
+[[ 0.24248339  0.05969805  0.00067777  0.66112918  0.00279525  0.00417567
+   0.01171994  0.00718996  0.00826195  0.00186889]]
+Target: 3 with confidence 0.661129; Actual: 3 with confidence 0.661129
+Agent 9, Step 400, Loss 0.995414, offset 2150
+Agent 9, Step 100, Loss 1.46707, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.21812, offset 1200
+Agent 9, Step 200, Loss 1.25923, offset 4050
+Agent 9, Step 300, Loss 0.998174, offset 3100
+2021-01-27 17:30:02.061106: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.061270: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.070295: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.071795: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.072485: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.087026: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.088169: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:02.093103: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.27634, offset 0
+result:
+3
+[[  1.56772628e-01   4.41996800e-03   3.35246405e-05   7.96620786e-01
+    9.68567329e-04   4.70769055e-06   4.09508124e-02   2.67712221e-06
+    1.21557758e-04   1.04762657e-04]]
+Target: 3 with confidence 0.796621; Actual: 3 with confidence 0.796621
+Agent 9, Step 400, Loss 0.943789, offset 2150
+Agent 9, Step 100, Loss 1.74124, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.10867, offset 1200
+Agent 9, Step 200, Loss 1.47572, offset 4050
+Agent 9, Step 300, Loss 1.36313, offset 3100
+2021-01-27 17:30:09.983835: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.983964: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.987907: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.992548: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.993188: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.996107: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.996923: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:09.997913: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+result:
+3
+[[  6.77759275e-02   4.77942713e-02   8.22181697e-04   8.60847771e-01
+    5.80095500e-03   3.66870518e-04   1.45403398e-02   8.45061324e-04
+    1.19036494e-03   1.61454445e-05]]
+Target: 3 with confidence 0.860848; Actual: 3 with confidence 0.860848
+Agent 9, Step 0, Loss 2.29435, offset 0
+Agent 9, Step 400, Loss 1.29253, offset 2150
+Agent 9, Step 100, Loss 1.70187, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 0.996874, offset 1200
+Agent 9, Step 200, Loss 1.17021, offset 4050
+Agent 9, Step 300, Loss 1.14482, offset 3100
+2021-01-27 17:30:17.852905: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.854017: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.855373: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.862068: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.863072: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.863427: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.864682: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:17.866060: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+result:
+3
+[[ 0.18619747  0.12086686  0.01345179  0.39834622  0.08797143  0.03611421
+   0.06162336  0.00970523  0.0841245   0.00159903]]
+Target: 3 with confidence 0.398346; Actual: 3 with confidence 0.398346
+Agent 9, Step 0, Loss 2.30313, offset 0
+Agent 9, Step 400, Loss 0.946445, offset 2150
+Agent 9, Step 100, Loss 1.40631, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.04323, offset 1200
+Agent 9, Step 200, Loss 1.11885, offset 4050
+2021-01-27 17:30:25.214244: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.214406: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.218431: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.223427: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.224111: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.226098: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.226388: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:25.226883: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.11024, offset 3100
+Agent 9, Step 0, Loss 2.6262, offset 0
+result:
+3
+[[  1.63241625e-01   7.21230824e-03   7.17532297e-04   7.56683350e-01
+    3.43689392e-03   6.84389437e-04   5.92783950e-02   1.09447702e-03
+    7.63141131e-03   1.96617239e-05]]
+Target: 3 with confidence 0.756683; Actual: 3 with confidence 0.756683
+Agent 9, Step 400, Loss 0.889809, offset 2150
+Agent 9, Step 100, Loss 1.88166, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.13545, offset 1200
+Agent 9, Step 200, Loss 1.68442, offset 4050
+2021-01-27 17:30:32.562424: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.562574: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.565256: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.572101: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.572885: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.573613: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.574319: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:32.575079: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.54703, offset 3100
+Agent 9, Step 0, Loss 2.31305, offset 0
+result:
+3
+[[ 0.17566065  0.08167167  0.04564716  0.51539153  0.1314925   0.00151098
+   0.0332007   0.00089016  0.00213961  0.01239504]]
+Target: 3 with confidence 0.515392; Actual: 3 with confidence 0.515392
+Agent 9, Step 400, Loss 1.4657, offset 2150
+Agent 9, Step 100, Loss 1.61506, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.46163, offset 1200
+Agent 9, Step 200, Loss 1.126, offset 4050
+2021-01-27 17:30:40.003247: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.003466: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.006977: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.014874: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.015009: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.015519: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.016000: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:40.016468: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.11441, offset 3100
+Agent 9, Step 0, Loss 2.50745, offset 0
+result:
+3
+[[ 0.29885784  0.00933692  0.04765582  0.23828398  0.0138109   0.02321432
+   0.12571269  0.01149701  0.16427261  0.06735793]]
+Target: 3 with confidence 0.238284; Actual: 0 with confidence 0.298858
+Agent 9, Step 400, Loss 1.0792, offset 2150
+Agent 9, Step 100, Loss 1.63718, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 0.860224, offset 1200
+Agent 9, Step 200, Loss 1.17224, offset 4050
+2021-01-27 17:30:47.466040: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.466241: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.468671: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.475299: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.475851: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.476324: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.476776: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:47.477285: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.01788, offset 3100
+Agent 9, Step 0, Loss 2.35771, offset 0
+result:
+3
+[[ 0.1883707   0.02896667  0.0069017   0.58813536  0.0260735   0.00857343
+   0.09236376  0.00468078  0.03137862  0.02455562]]
+Target: 3 with confidence 0.588135; Actual: 3 with confidence 0.588135
+Agent 9, Step 400, Loss 0.969564, offset 2150
+Agent 9, Step 100, Loss 1.79007, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.1966, offset 1200
+Agent 9, Step 200, Loss 1.61764, offset 4050
+2021-01-27 17:30:54.961420: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.961625: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.969698: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.970301: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.971223: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.971877: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.972522: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:30:54.973218: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.20522, offset 3100
+Agent 9, Step 0, Loss 2.49079, offset 0
+result:
+3
+[[  8.61164182e-02   3.79668549e-02   2.81681103e-04   8.40161800e-01
+    6.42430445e-04   1.70389776e-05   3.05514522e-02   2.42794427e-04
+    3.06052109e-03   9.59086348e-04]]
+Target: 3 with confidence 0.840162; Actual: 3 with confidence 0.840162
+Agent 9, Step 400, Loss 1.24073, offset 2150
+Agent 9, Step 100, Loss 1.92073, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.4637, offset 1200
+Agent 9, Step 200, Loss 1.46571, offset 4050
+2021-01-27 17:31:02.352405: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.352589: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.355664: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.362005: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.362536: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.363047: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.363773: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:02.372934: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.40056, offset 3100
+Agent 9, Step 0, Loss 2.39921, offset 0
+result:
+3
+[[  1.70153275e-01   4.64583412e-02   1.07104490e-04   7.59015441e-01
+    6.95230486e-03   2.68126652e-03   1.07424837e-02   1.32879359e-03
+    1.50908867e-03   1.05203781e-03]]
+Target: 3 with confidence 0.759015; Actual: 3 with confidence 0.759015
+Agent 9, Step 400, Loss 1.37635, offset 2150
+Agent 9, Step 100, Loss 1.65566, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.13664, offset 1200
+Agent 9, Step 200, Loss 1.23829, offset 4050
+2021-01-27 17:31:09.859744: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.860316: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.862150: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.868983: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.869475: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.869935: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.870378: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:09.872127: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.077, offset 3100
+Agent 9, Step 0, Loss 2.31603, offset 0
+result:
+3
+[[  6.72448575e-02   2.84064393e-02   4.50354535e-04   7.69612193e-01
+    1.60587188e-02   1.27731217e-03   1.08506948e-01   3.16739985e-04
+    1.31510501e-03   6.81148982e-03]]
+Target: 3 with confidence 0.769612; Actual: 3 with confidence 0.769612
+Agent 9, Step 400, Loss 0.923083, offset 2150
+Agent 9, Step 100, Loss 1.36597, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.11751, offset 1200
+Agent 9, Step 200, Loss 1.22144, offset 4050
+2021-01-27 17:31:17.309979: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.310143: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.311968: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.318317: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.320344: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.320701: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.321593: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:17.322205: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.09139, offset 3100
+Agent 9, Step 0, Loss 2.31515, offset 0
+result:
+3
+[[  1.56623907e-02   7.20996633e-02   7.19557211e-05   8.54543447e-01
+    3.07820868e-02   5.83753339e-04   2.26763710e-02   1.20448519e-03
+    7.56497437e-04   1.61929789e-03]]
+Target: 3 with confidence 0.854543; Actual: 3 with confidence 0.854543
+Agent 9, Step 400, Loss 0.988375, offset 2150
+Agent 9, Step 100, Loss 1.49505, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.03564, offset 1200
+Agent 9, Step 200, Loss 1.06764, offset 4050
+2021-01-27 17:31:24.893149: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.894011: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.902907: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.904502: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.905044: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.905558: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.906070: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:24.906517: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.14007, offset 3100
+Agent 9, Step 0, Loss 2.30286, offset 0
+result:
+3
+[[  2.86584329e-02   5.92013448e-02   3.08892177e-03   8.68780911e-01
+    2.14282935e-03   1.44658582e-02   3.27172759e-03   6.21575722e-03
+    1.38270548e-02   3.47093330e-04]]
+Target: 3 with confidence 0.868781; Actual: 3 with confidence 0.868781
+Agent 9, Step 400, Loss 0.875074, offset 2150
+Agent 9, Step 100, Loss 1.35752, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.2039, offset 1200
+Agent 9, Step 200, Loss 1.17077, offset 4050
+2021-01-27 17:31:32.282995: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.283155: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.284996: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.292529: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.293077: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.294712: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.295233: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:32.296428: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 0.961178, offset 3100
+Agent 9, Step 0, Loss 2.28631, offset 0
+result:
+3
+[[  1.55332714e-01   2.67054103e-02   2.82137841e-03   6.36206031e-01
+    2.42971256e-02   4.12923517e-03   1.37501597e-01   1.81491952e-04
+    1.18447691e-02   9.80253331e-04]]
+Target: 3 with confidence 0.636206; Actual: 3 with confidence 0.636206
+Agent 9, Step 400, Loss 0.815568, offset 2150
+Agent 9, Step 100, Loss 1.64632, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.07922, offset 1200
+Agent 9, Step 200, Loss 1.123, offset 4050
+Agent 9, Step 300, Loss 1.14231, offset 3100
+2021-01-27 17:31:40.170854: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.171004: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.172643: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.179434: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.181766: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.182115: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.186102: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:40.192472: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.40386, offset 0
+result:
+3
+[[  1.17733367e-01   2.04085298e-02   4.09220625e-03   7.86952555e-01
+    6.35123579e-03   1.94538792e-03   2.11374480e-02   2.99839657e-02
+    1.06251659e-02   7.70207611e-04]]
+Target: 3 with confidence 0.786953; Actual: 3 with confidence 0.786953
+Agent 9, Step 400, Loss 1.05466, offset 2150
+Agent 9, Step 100, Loss 1.67315, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.08538, offset 1200
+Agent 9, Step 200, Loss 1.37624, offset 4050
+2021-01-27 17:31:47.561667: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.561833: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.569479: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.570256: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.570907: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.573985: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.588386: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:47.590619: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.24711, offset 3100
+Agent 9, Step 0, Loss 2.38438, offset 0
+result:
+3
+[[ 0.2271484   0.05683656  0.01930974  0.59095854  0.01093961  0.00965122
+   0.06442315  0.00087404  0.00109591  0.01876287]]
+Target: 3 with confidence 0.590959; Actual: 3 with confidence 0.590959
+Agent 9, Step 400, Loss 1.14869, offset 2150
+Agent 9, Step 100, Loss 1.72602, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 0.972178, offset 1200
+Agent 9, Step 200, Loss 1.37498, offset 4050
+2021-01-27 17:31:55.311159: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.311365: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.320222: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.320949: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.321663: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.322392: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.335896: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:31:55.336562: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.29743, offset 3100
+Agent 9, Step 0, Loss 2.41599, offset 0
+result:
+3
+[[  8.19732547e-02   9.67142731e-02   1.85051886e-03   7.48822212e-01
+    2.16743518e-02   9.14139746e-05   4.77876998e-02   3.47787245e-05
+    5.72417222e-04   4.79122973e-04]]
+Target: 3 with confidence 0.748822; Actual: 3 with confidence 0.748822
+Agent 9, Step 400, Loss 0.936305, offset 2150
+Agent 9, Step 100, Loss 1.59348, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.18221, offset 1200
+Agent 9, Step 200, Loss 1.17227, offset 4050
+2021-01-27 17:32:02.733774: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.733922: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.735480: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.743210: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.745223: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.746411: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.752792: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:02.753370: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.24145, offset 3100
+Agent 9, Step 0, Loss 2.33197, offset 0
+result:
+3
+[[  2.10469976e-01   2.15782207e-02   1.15553439e-02   6.65463746e-01
+    1.43028963e-02   1.31795171e-03   7.33642206e-02   2.81121465e-04
+    1.27290632e-03   3.93524562e-04]]
+Target: 3 with confidence 0.665464; Actual: 3 with confidence 0.665464
+Agent 9, Step 400, Loss 0.876711, offset 2150
+Agent 9, Step 100, Loss 1.76119, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.01717, offset 1200
+Agent 9, Step 200, Loss 1.58849, offset 4050
+Agent 9, Step 300, Loss 1.41557, offset 3100
+2021-01-27 17:32:11.247963: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.248132: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.251510: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.257551: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.259610: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.260199: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.260652: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:11.261192: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.29526, offset 0
+result:
+3
+[[ 0.09308516  0.02855078  0.00923985  0.70080703  0.02494098  0.00682887
+   0.05787102  0.00626598  0.05792624  0.01448394]]
+Target: 3 with confidence 0.700807; Actual: 3 with confidence 0.700807
+Agent 9, Step 400, Loss 1.12418, offset 2150
+Agent 9, Step 100, Loss 1.7782, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.39426, offset 1200
+Agent 9, Step 200, Loss 1.25843, offset 4050
+2021-01-27 17:32:18.815033: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.815207: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.817265: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.823796: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.824287: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.824786: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.825223: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:18.825641: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 0.894533, offset 3100
+Agent 9, Step 0, Loss 2.33625, offset 0
+result:
+3
+[[  7.85072520e-02   2.31084395e-02   3.31810676e-04   8.54243398e-01
+    1.97149497e-02   2.16731823e-05   1.87434331e-02   1.02237436e-05
+    5.29009895e-03   2.88145075e-05]]
+Target: 3 with confidence 0.854243; Actual: 3 with confidence 0.854243
+Agent 9, Step 400, Loss 1.02617, offset 2150
+Agent 9, Step 100, Loss 1.49064, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.25864, offset 1200
+Agent 9, Step 200, Loss 1.40683, offset 4050
+Agent 9, Step 300, Loss 1.10036, offset 3100
+2021-01-27 17:32:26.763802: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.763947: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.765477: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.772584: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.772785: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.774795: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.774939: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:26.775569: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.33251, offset 0
+result:
+3
+[[  4.49824184e-02   1.16758095e-03   8.96474754e-04   9.13268209e-01
+    1.66331176e-02   3.60662257e-03   1.67037137e-02   1.09674562e-04
+    2.54941802e-03   8.27606491e-05]]
+Target: 3 with confidence 0.913268; Actual: 3 with confidence 0.913268
+Agent 9, Step 400, Loss 0.964123, offset 2150
+Agent 9, Step 100, Loss 1.59746, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.24614, offset 1200
+Agent 9, Step 200, Loss 1.47656, offset 4050
+2021-01-27 17:32:34.437073: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.437239: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.438767: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.445405: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.446581: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.449431: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.450056: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:34.450593: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.23543, offset 3100
+Agent 9, Step 0, Loss 2.49673, offset 0
+result:
+3
+[[  1.07704349e-01   4.04227665e-03   2.59350566e-03   8.17814052e-01
+    2.72896904e-02   9.40625090e-04   3.45810428e-02   1.27129676e-03
+    3.67956632e-03   8.36016698e-05]]
+Target: 3 with confidence 0.817814; Actual: 3 with confidence 0.817814
+Agent 9, Step 400, Loss 0.890105, offset 2150
+Agent 9, Step 100, Loss 1.64315, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.25561, offset 1200
+Agent 9, Step 200, Loss 1.47118, offset 4050
+2021-01-27 17:32:42.200648: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.200783: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.203584: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.210796: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.212565: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.219516: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.220039: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:42.220702: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.52589, offset 3100
+Agent 9, Step 0, Loss 2.38737, offset 0
+result:
+3
+[[  1.31374836e-01   9.58927814e-03   1.54973045e-02   7.27240980e-01
+    4.09768336e-02   6.33314392e-03   4.88707237e-02   2.80685083e-04
+    8.19835067e-03   1.16378907e-02]]
+Target: 3 with confidence 0.727241; Actual: 3 with confidence 0.727241
+Agent 9, Step 400, Loss 1.39908, offset 2150
+Agent 9, Step 100, Loss 1.71272, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.61493, offset 1200
+Agent 9, Step 200, Loss 1.50358, offset 4050
+2021-01-27 17:32:49.825074: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.826654: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.828624: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.835504: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.836147: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.836799: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.837484: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:49.838061: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.12375, offset 3100
+Agent 9, Step 0, Loss 2.39779, offset 0
+result:
+3
+[[ 0.15563853  0.09989731  0.09835172  0.18866841  0.12317588  0.03234612
+   0.11668553  0.04576915  0.06093425  0.07853314]]
+Target: 3 with confidence 0.188668; Actual: 3 with confidence 0.188668
+Agent 9, Step 400, Loss 1.24405, offset 2150
+Agent 9, Step 100, Loss 1.64852, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 0.986781, offset 1200
+Agent 9, Step 200, Loss 1.38566, offset 4050
+2021-01-27 17:32:57.253949: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.255329: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.257148: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.263565: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.264281: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.264792: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.265254: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:32:57.265726: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.3121, offset 3100
+Agent 9, Step 0, Loss 2.29804, offset 0
+result:
+3
+[[  1.38224021e-01   2.92737558e-02   2.44440511e-02   6.78382993e-01
+    2.74612941e-02   6.45201420e-04   9.42141935e-02   4.90139537e-05
+    7.29337009e-03   1.22331721e-05]]
+Target: 3 with confidence 0.678383; Actual: 3 with confidence 0.678383
+Agent 9, Step 400, Loss 0.95999, offset 2150
+Agent 9, Step 100, Loss 1.48463, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.19698, offset 1200
+Agent 9, Step 200, Loss 1.11969, offset 4050
+2021-01-27 17:33:04.888270: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.888434: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.890121: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.896592: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.897369: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.898174: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.899091: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:04.899848: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.01279, offset 3100
+Agent 9, Step 0, Loss 2.30332, offset 0
+result:
+3
+[[ 0.11261864  0.14973511  0.09867352  0.45074031  0.04665663  0.01014142
+   0.07533024  0.02140168  0.02258298  0.01211953]]
+Target: 3 with confidence 0.45074; Actual: 3 with confidence 0.45074
+Agent 9, Step 400, Loss 0.826199, offset 2150
+Agent 9, Step 100, Loss 1.81176, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 0.979845, offset 1200
+Agent 9, Step 200, Loss 0.968196, offset 4050
+Agent 9, Step 300, Loss 1.15893, offset 3100
+2021-01-27 17:33:12.700836: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.701007: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.702777: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.709519: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.710022: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.711711: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.711908: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:12.712704: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 0, Loss 2.48135, offset 0
+result:
+3
+[[ 0.14801632  0.17513587  0.03259201  0.50750315  0.0158802   0.00690554
+   0.04108041  0.00254564  0.05741871  0.01292217]]
+Target: 3 with confidence 0.507503; Actual: 3 with confidence 0.507503
+Agent 9, Step 400, Loss 0.980575, offset 2150
+Agent 9, Step 100, Loss 1.73902, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 0.967339, offset 1200
+Agent 9, Step 200, Loss 1.49588, offset 4050
+2021-01-27 17:33:20.070187: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.071084: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.073191: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.079927: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.080560: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.081028: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.081501: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:20.082216: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.30385, offset 3100
+Agent 9, Step 0, Loss 2.29485, offset 0
+result:
+3
+[[  3.72594267e-01   1.96150895e-02   1.04342750e-03   4.83002692e-01
+    1.54755905e-03   1.01868517e-03   1.09479971e-01   2.48320634e-04
+    1.09203681e-02   5.29767596e-04]]
+Target: 3 with confidence 0.483003; Actual: 3 with confidence 0.483003
+Agent 9, Step 400, Loss 1.25685, offset 2150
+Agent 9, Step 100, Loss 1.65958, offset 5000
+Using TensorFlow backend.
+Agent 9, Step 500, Loss 1.291, offset 1200
+Agent 9, Step 200, Loss 1.01256, offset 4050
+2021-01-27 17:33:27.890190: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.890336: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.892142: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.898538: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.899034: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.899526: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.900047: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2021-01-27 17:33:27.900535: W c:\l\tensorflow_1501918863922\work\tensorflow-1.2.1\tensorflow\core\platform\cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Agent 9, Step 300, Loss 1.15829, offset 3100
+Agent 9, Step 0, Loss 2.34939, offset 0
+result:
+3
+[[  3.27164568e-02   3.44622880e-02   3.73571031e-02   7.38401711e-01
+    6.88873455e-02   1.06625282e-03   6.55015782e-02   6.20416657e-04
+    2.08468866e-02   1.40023010e-04]]
+Target: 3 with confidence 0.738402; Actual: 3 with confidence 0.738402
+Agent 9, Step 400, Loss 0.937994, offset 2150
+Agent 9, Step 100, Loss 1.72333, offset 5000
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+Traceback (most recent call last):
+  File "single_test.py", line 315, in <module>
+    p.start()
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\process.py", line 105, in start
+    self._popen = self._Popen(self)
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\context.py", line 223, in _Popen
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\spawn.py", line 105, in spawn_main
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\context.py", line 322, in _Popen
+    exitcode = _main(fd)
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\spawn.py", line 114, in _main
+    return Popen(process_obj)
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\popen_spawn_win32.py", line 65, in __init__
+    prepare(preparation_data)
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    reduction.dump(process_obj, to_child)
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\reduction.py", line 60, in dump
+  File "C:\Anaconda3\envs\tf\lib\multiprocessing\spawn.py", line 277, in _fixup_main_from_path
+    ForkingPickler(file, protocol).dump(obj)
+BrokenPipeError: [Errno 32] Broken pipe
+    run_name="__mp_main__")
+  File "C:\Anaconda3\envs\tf\lib\runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "C:\Anaconda3\envs\tf\lib\runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "C:\Anaconda3\envs\tf\lib\runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "E:\FedLearning\ModelPoisoning\ModelPoisoning\ModelPoisoning_multi_targeted\single_test.py", line 3, in <module>
+    from keras.utils import np_utils
+  File "C:\Anaconda3\envs\tf\lib\site-packages\keras\__init__.py", line 3, in <module>
+    from . import utils
+  File "C:\Anaconda3\envs\tf\lib\site-packages\keras\utils\__init__.py", line 25, in <module>
+    from .multi_gpu_utils import multi_gpu_model
+  File "C:\Anaconda3\envs\tf\lib\site-packages\keras\utils\multi_gpu_utils.py", line 7, in <module>
+    from ..layers.merge import concatenate
+  File "C:\Anaconda3\envs\tf\lib\site-packages\keras\layers\__init__.py", line 4, in <module>
+    from ..engine import Layer
+  File "C:\Anaconda3\envs\tf\lib\site-packages\keras\engine\__init__.py", line 8, in <module>
+    from .training import Model
+  File "C:\Anaconda3\envs\tf\lib\site-packages\keras\engine\training.py", line 11, in <module>
+    from scipy.sparse import issparse
+  File "C:\Anaconda3\envs\tf\lib\site-packages\scipy\sparse\__init__.py", line 229, in <module>
+    from .csr import *
+  File "C:\Anaconda3\envs\tf\lib\site-packages\scipy\sparse\csr.py", line 20, in <module>
+    from .compressed import _cs_matrix
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 764, in get_code
+  File "<frozen importlib._bootstrap_external>", line 832, in get_data
+KeyboardInterrupt
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source
+libifcoremd.dll    00007FFE19D943E4  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFE5E2FB443  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFE5F7D7034  Unknown               Unknown  Unknown
+ntdll.dll          00007FFE6063D0D1  Unknown               Unknown  Unknown
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source
+libifcoremd.dll    00007FFE19D943E4  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFE5E2FB443  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFE5F7D7034  Unknown               Unknown  Unknown
+ntdll.dll          00007FFE6063D0D1  Unknown               Unknown  Unknown
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source
+libifcoremd.dll    00007FFE19D943E4  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFE5E2FB443  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFE5F7D7034  Unknown               Unknown  Unknown
+ntdll.dll          00007FFE6063D0D1  Unknown               Unknown  Unknown
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source
+libifcoremd.dll    00007FFE19D943E4  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFE5E2FB443  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFE5F7D7034  Unknown               Unknown  Unknown
+ntdll.dll          00007FFE6063D0D1  Unknown               Unknown  Unknown
+
+(tf) E:\FedLearning\ModelPoisoning\ModelPoisoning\ModelPoisoning_multi_targeted>python
+Python 3.6.2 |Continuum Analytics, Inc.| (default, Jul 20 2017, 12:30:02) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> gar = 'avg'
+>>> 'avg' in gar
+True
+>>>

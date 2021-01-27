@@ -39,7 +39,7 @@ mal_agent_index = k -1
 
 # dir_name = ('single_test_weights/%s/model_%s/%s/k%s_E%s_B%s_C%1.0e_lr%.1e/' % (
 #         dataset, model_num, optimizer, k, E, B, C, eta))
-dir_name = 'single_test_weights'
+dir_name = '.\\single_test_weights\\'
 
 X_train, y_train = load_fmnist(".\\utils\\data", kind='train')
 X_test, y_test = load_fmnist(".\\utils\\data",kind='t10k')
@@ -85,7 +85,7 @@ def mal_agent(i, X_shard, Y_shard, return_dict):
     # final_delta, penul_delta = mal_single_algs()
     # final_weights = 
 
-def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
+def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, t, lr=None):
     K.set_learning_phase(1)
     shard_size = len(X_shard)
     if lr == None:
@@ -168,18 +168,18 @@ def master():
 
 def modelA():
     model = Sequential()
-    model.add(Conv2D(64, (5, 5), padding='valid', input_shape=(IMAGE_ROWS,
+    model.add(Conv2D(4, (5, 5), padding='valid', input_shape=(IMAGE_ROWS,
                                          IMAGE_COLS,
                                          NUM_CHANNELS)))
     model.add(Activation('relu'))
 
-    model.add(Conv2D(64, (5, 5)))
+    model.add(Conv2D(4, (5, 5)))
     model.add(Activation('relu'))
 
     model.add(Dropout(0.25))
 
     model.add(Flatten())
-    model.add(Dense(128))
+    model.add(Dense(16))
     model.add(Activation('relu'))
 
     model.add(Dropout(0.5))
@@ -297,8 +297,7 @@ if __name__ == "__main__":
     return_dict['eval_success'] = 0.0
     return_dict['eval_loss'] = 0.0
     return_dict['mal_suc_count'] = 0
-    
-    t = 0
+
     gpu_id = 0
     num_agents_per_time = int(C*k)
     agents_indices = np.arange(k)
@@ -306,18 +305,24 @@ if __name__ == "__main__":
     i = 0
     while return_dict['eval_success'] < max_acc and t < T:
         
+        process_list=[]
         curr_agents = np.random.choice(agents_indices,num_agents_per_time,replace=False)
+
 
         k = 0
         ######## Agents Trainning ##########
         while k < num_agents_per_time:
             i = curr_agents[k]
-            p = Process(target=agents, args=(i, X_train_shards[i], Y_train_shards[i], gpu_id, return_dict, X_test, y_test))
-            p.start()
+            p = Process(target = agents, args=(i, X_train_shards[i], Y_train_shards[i], gpu_id, return_dict, X_test, y_test, t))
+            process_list.append(p)
+            k += 1
+        for item in process_list:
+            item.start()
+            item.join()
         # Procss mal
         ############
         
-
+        t = t + 1
         ## 每一次t迭代，只是创建一个Process
         
         if 'avg' in gar:
@@ -334,12 +339,11 @@ if __name__ == "__main__":
 
             global_weights += ben_delta
 
-            np.save(dir_name + 'global_weights_t%s.npy' % t,global_weights)
+            np.save(dir_name + 'global_weights_t%s.npy' % t, global_weights)
         #p_eval = Process(target=eval_func)
 
         print("syssysysysysysysysy")
         print(sys.getsizeof(return_dict))
 
-        k = k + 1
-        t = t + 1
+    
     print("finished")
