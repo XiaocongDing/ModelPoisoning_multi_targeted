@@ -70,6 +70,22 @@ ResourceExhaustedError
 
 ![1608796008229](Adversarial Len源码阅读.assets/1608796008229.png)
 
+### 现在存在问题
+
+代码跑得太慢，我怀疑是GPU参数设置没有成功，是在用cpu跑的。
+
+本文的并行是使用的python的multiprocess库。
+
+
+
+![1608795981725](Adversarial Len源码阅读.assets/1608795981725.png)
+
+
+
+通过提取了作者恶意数据集的生成方式，发现了问题。数据毒化只是做了单个样本的标签翻转，个人觉得意义不大。
+
+![1608867027550](Adversarial Len源码阅读.assets/1608867027550.png)
+
 
 
 #### 代码运行问题：
@@ -82,17 +98,11 @@ ResourceExhaustedError:
 
 ![1608796066907](Adversarial Len源码阅读.assets/1608796066907.png)
 
+怀疑是显存不够大的问题，本机环境650TI ，显存1G。
 
+改到Tesla V4，能跑。
 
-
-
-### 现在存在问题
-
-代码跑得太慢，我怀疑是GPU参数设置没有成功，是在用cpu跑的。
-
-本文的并行是使用的python的multiprocess库。
-
-![1608795981725](Adversarial Len源码阅读.assets/1608795981725.png)
+返回
 
 ## 代码实现流程：
 
@@ -227,6 +237,10 @@ agent: 训练600步，时间记录一下
 model.summary () 能输出模型各层的参数情况
 
 master获取全局模型的权值，
+
+### 
+
+
 
 
 

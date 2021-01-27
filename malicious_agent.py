@@ -394,6 +394,7 @@ def mal_single_algs(x, y, logits, agent_model, shared_weights, sess, mal_data_X,
         delta_naive_mal = alpha_m * delta_mal_ret
         delta_mal = delta_mal_ret
 
+1.0
     return delta_mal, delta_naive_mal
 
 
@@ -498,6 +499,9 @@ def mal_agent(X_shard, Y_shard, mal_data_X, mal_data_Y, t, gpu_id, return_dict,
 
     final_weights = shared_weights + final_delta
     agent_model.set_weights(final_weights)
+
+
+
 
     print('---Eval at mal agent---')
     if 'single' in args.mal_obj:

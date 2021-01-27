@@ -8,6 +8,7 @@ from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
 import numpy as np
 import os
 from multiprocessing import Process, Manager
+import sys
 ######################################
 
 ############ data prepared ###########
@@ -19,20 +20,26 @@ BATCH_SIZE = 100
 max_acc = 91.0
 max_agents_per_gpu = 8
 mem_frac = 0.05
+mal_num = 1 
 k = 10 # the number of client
-C = 1.0 # the fraction of agents per time step
+C = 0.3 # the fraction of agents per time step
 E = 5 # epochs for each agent
 B = 50 # agent batch size
 eta = 1e-3 # learning rate
+T = 10 # iterations  
+gar = 'avg'
+alpha_i = 1.0 / k
 
 mal_agent = True
 dataset = 'fMMNIST'
 mal_obj = 'single' ## or 'multipule'
 optimizer = 'adam'
 model_num = 1
+mal_agent_index = k -1
 
-dir_name = 'single_test_weights/%s/model_%s/%s/k%s_E%s_B%s_C%1.0e_lr%.1e' % (
-        dataset, model_num, optimizer, k, E, B, C, eta)
+# dir_name = ('single_test_weights/%s/model_%s/%s/k%s_E%s_B%s_C%1.0e_lr%.1e/' % (
+#         dataset, model_num, optimizer, k, E, B, C, eta))
+dir_name = 'single_test_weights'
 
 X_train, y_train = load_fmnist(".\\utils\\data", kind='train')
 X_test, y_test = load_fmnist(".\\utils\\data",kind='t10k')
@@ -58,21 +65,44 @@ X_test /= 255
 
 ########## functions ##########################
 
+#def mal_single_algs(x,y)
+
+def mal_agent(i, X_shard, Y_shard, return_dict):
+
+    num_steps = E * shard_size / B
+    x = tf.placeholder(shape=(None,
+                              IMAGE_ROWS,
+                              IMAGE_COLS,
+                              NUM_CHANNELS), dtype=tf.float32)
+    y = tf.placeholder(dtype=tf.int64)
+    agent_model = modelA()
+    logits = agent_model(x)
+    prediction = tf.nn.softmax(logits)
+    eval_loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+        labels = y, logits=logits))
+    sess = tf.Session()
+    K.set_session(sess)
+    # final_delta, penul_delta = mal_single_algs()
+    # final_weights = 
+
 def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
     K.set_learning_phase(1)
     shard_size = len(X_shard)
-
-    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
-
-
     if lr == None:
         lr = eta
     num_steps = E * shard_size / B ## num_steps : iterations
     
+    shared_weights = np.load(dir_name + 'global_weights_t%s.npy' % t,allow_pickle = True)
+
     agent_model = modelA()
 
-    temp_weights = agent_model.get_weights()
+    # temp_weights = agent_model.get_weights()
+    # temp_weights = np.array(temp_weights)
+    # for i in range(np.shape(temp_weights)[0]):
+    #     print(np.shape(temp_weights[i]))
+    #     flat_ = temp_weights[i].flatten()
+    #     print(np.shape(flat_))
+        
 
     x = tf.placeholder(shape=(None,
                               IMAGE_ROWS,
@@ -88,14 +118,15 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
 
     prediction = tf.nn.softmax(logits)
     optimizer = tf.train.AdamOptimizer(learning_rate=lr).minimize(loss)
-    gpu_option = tf.GPUOptions(allow_growth = True)
-    
-    config = tf.ConfigProto(gpu_options = gpu_option)
+    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=mem_frac)
+    config = tf.ConfigProto(gpu_options = gpu_options)
     sess = tf.Session(config = config)  
     K.set_session(sess)
 
     
     sess.run(tf.global_variables_initializer())
+
+    agent_model
 
     start_offset = 0
     
@@ -104,14 +135,36 @@ def agents(i, X_shard, Y_shard, gpu_id, return_dict, X_test, Y_test, lr=None):
         X_batch = X_shard[offset: (offset + B)]
         Y_batch = Y_shard[offset: (offset + B)]
         Y_batch_uncat = np.argmax(Y_batch, axis=1)
-        print("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
         _, loss_val = sess.run([optimizer,loss], feed_dict={x: X_batch, y: Y_batch_uncat})
-        if step % 10 == 0:
+        if step % 100 == 0:
             print ('Agent %s, Step %s, Loss %s, offset %s' % (i,step,loss_val, offset))
+            # temp_weights = agent_model.get_weights()
+            # for i in range(np.shape(temp_weights)[0]):
+            #     temp_weights[i] = temp_weights[i] * (abs(temp_weights[i]) > 0.01)
+            # agent_model.set_weights(temp_weights)
+    
+    final_weights = agent_model.get_weights()
+    X_input = X_shard[[3]]
+    Y_input = np.argmax(Y_shard[3], axis=0)
+    Y_input = Y_input.reshape(1,)
+    target, target_conf, actual, actual_conf = mal_eval_single(X_input,Y_input,final_weights)
+    print("Target: %s with confidence %s; Actual: %s with confidence %s" % (target, target_conf, actual, actual_conf))
 
-
+    return_dict[str(i)] = np.array(final_weights)
 
 # def train_fn(X_train_shards)
+def master():
+    K.set_learning_phase(1)
+    print('Initializing master model')
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    sess = tf.Session(config = config)
+    K.set_session(sess)
+    sess.run(tf.global_variables_initializer())
+    global_model = modelA()
+    global_model.summary()
+    global_weights = global_model.get_weights()
+    np.save(dir_name+'global_weights_t0.npy',global_weights)
 
 def modelA():
     model = Sequential()
@@ -159,7 +212,37 @@ def mal_data_create(X_test, Y_test, Y_test_uncat):
         mal_data_Y = np.array(mal_data_Y)
     return mal_data_X, mal_data_Y, true_labels
 
+def eval_setup(global_weights):
+    K.set_learning_phase(0)
+    global_model = modelA()
+    x = tf.placeholder(shape=(None,
+                                IMAGE_ROWS,
+                                IMAGE_COLS,
+                                NUM_CHANNELS), dtype=tf.float32)
+    y = tf.placeholder(dtype=tf.int64)
+    logits = global_model(x)
+    prediction = tf.nn.softmax(logits)
+    loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+        labels = y, logits = logits))
+    sess = tf.Session()
+    K.set_session(sess)
+    sess.run(tf.global_variables_initializer())
+    global_model.set_weights(global_weights)
+    return x, y, sess, prediction, loss
 
+def mal_eval_single(mal_data_X, mal_data_Y, weights):
+    x, y, sess, prediction, loss = eval_setup(weights)
+    mal_obj_pred = sess.run(prediction, feed_dict={x: mal_data_X})
+    target = mal_data_Y[0]
+    print("result:")
+    print(target)
+    print(mal_obj_pred)
+    target_conf = mal_obj_pred[:,mal_data_Y][0][0]
+    actual = np.argmax(mal_obj_pred, axis=1)[0]
+    actual_conf = np.max(mal_obj_pred, axis=1)[0]
+
+    sess.close()
+    return target, target_conf, actual, actual_conf
 
 ###########################################
 
@@ -187,6 +270,8 @@ if __name__ == "__main__":
     X_train_shards = np.split(X_train_permuted, k)
     Y_train_shards = np.split(Y_train_permuted, k)
 
+    print(np.shape(X_train_shards[1]))
+
     data_path = 'data/mal_X_%s_%s.npy' % (dataset,mal_obj)
 
     if not os.path.exists(data_path):
@@ -200,12 +285,61 @@ if __name__ == "__main__":
         print("Target classes: %s" % mal_data_Y)
 
     
+    pm = Process(target=master)
+    pm.start()
+    pm.join()
+    
+    t = 0
+    global_weights = np.load(dir_name + 'global_weights_t%s.npy' % t, allow_pickle=True)
+
     manager = Manager()
     return_dict = manager.dict()
     return_dict['eval_success'] = 0.0
     return_dict['eval_loss'] = 0.0
-    # t = 0
+    return_dict['mal_suc_count'] = 0
+    
+    t = 0
     gpu_id = 0
-    p = Process(target=agents, args=(1, X_train_permuted, Y_train_permuted, gpu_id, return_dict, X_test, y_test))
-    p.start()
-    p.join()
+    num_agents_per_time = int(C*k)
+    agents_indices = np.arange(k)
+
+    i = 0
+    while return_dict['eval_success'] < max_acc and t < T:
+        
+        curr_agents = np.random.choice(agents_indices,num_agents_per_time,replace=False)
+
+        k = 0
+        ######## Agents Trainning ##########
+        while k < num_agents_per_time:
+            i = curr_agents[k]
+            p = Process(target=agents, args=(i, X_train_shards[i], Y_train_shards[i], gpu_id, return_dict, X_test, y_test))
+            p.start()
+        # Procss mal
+        ############
+        
+
+        ## 每一次t迭代，只是创建一个Process
+        
+        if 'avg' in gar:
+            print("converge strategy Fed avg")
+            count = 0
+            for k in range(num_agents_per_time):
+                if curr_agents[k] != mal_agent_index:
+                    if count == 0:
+                        ben_delta = alpha_i * return_dict[str(curr_agents[k])]
+                        count += 1
+                    else:
+                        ben_delta += alpha_i * return_dict[str(curr_agents[k])]
+            global_weights += alpha_i * return_dict[str(mal_agent_index)] #这里有一个强假设，每次都会选中拜占庭客户端
+
+            global_weights += ben_delta
+
+            np.save(dir_name + 'global_weights_t%s.npy' % t,global_weights)
+        #p_eval = Process(target=eval_func)
+
+        print("syssysysysysysysysy")
+        print(sys.getsizeof(return_dict))
+
+        k = k + 1
+        t = t + 1
+    print("finished")
